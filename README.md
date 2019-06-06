@@ -2,6 +2,7 @@
 
 A todo app in Flutter using SQLite database(with help of sqflite plugin).
 
+<a href="https://www.freepik.com/free-photos-vectors/line">Line vector created by makyzz - www.freepik.com</a>
 ## Getting Started
 
 This project is a starting point for a Flutter application.
