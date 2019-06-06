@@ -58,14 +58,9 @@ class _TodoScreenState extends State<TodoScreen> {
                       _list[index] = updatedTodo;
                     });
                   },
-                  trailing: Listener(
-                    key: Key(_list[index].name),
-                    child: Icon(
-                      Icons.remove_circle,
-                      color: Colors.redAccent,
-                    ),
-                    onPointerDown: (pointerEvent) =>
-                        _deleteTodo(_list[index].id, index),
+                  trailing: IconButton(
+                    icon: Icon(Icons.delete,size: 36,color: Colors.redAccent,),
+                    onPressed: () => _deleteTodo(_list[index].id, index),
                   ),
                 ));
               },
@@ -83,7 +78,7 @@ class _TodoScreenState extends State<TodoScreen> {
 
   void _showDialogForm() {
     var alert = new AlertDialog(
-      title: Text("Add a Item"),
+      title: Text("Add Todo"),
       content: Row(
         children: <Widget>[
           Expanded(
@@ -91,8 +86,8 @@ class _TodoScreenState extends State<TodoScreen> {
               autofocus: true,
               controller: _textEditingController,
               decoration: InputDecoration(
-                labelText: "Item",
-                hintText: "Learn Flutter",
+                labelText: "Todo",
+                hintText: "e.g. Learn Flutter",
                 icon: Icon(Icons.note_add),
               ),
             ),
@@ -150,8 +145,8 @@ class _TodoScreenState extends State<TodoScreen> {
               autofocus: true,
               controller: _textEditingController,
               decoration: InputDecoration(
-                labelText: "Item",
-                hintText: "Learn Flutter",
+                labelText: "Todo",
+                hintText: "e.g. Learn Flutter",
                 icon: Icon(Icons.update),
               ),
             ),
@@ -180,6 +175,7 @@ class _TodoScreenState extends State<TodoScreen> {
         ),
         FlatButton(
           onPressed: () {
+            _textEditingController.clear();
             Navigator.pop(context);
           },
           child: Text("Cancel"),
